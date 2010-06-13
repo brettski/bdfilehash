@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BDFileHash")]
 [assembly: AssemblyDescription("Convenient file hashing tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Brettski, Inc.")]
+[assembly: AssemblyCompany("Brettski")]
 [assembly: AssemblyProduct("BDFileHash")]
-[assembly: AssemblyCopyright("Copyright © Brettski, Inc. 2010")]
+[assembly: AssemblyCopyright("Copyright © Brettski 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.4")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.5")]
