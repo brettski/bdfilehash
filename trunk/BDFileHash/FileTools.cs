@@ -49,13 +49,6 @@ namespace BDFileHash
                 return Regex.Match(sr.ReadToEnd(), HashRegEx, RegexOptions.IgnoreCase).Value;
             }
         }
-
-        public enum HashType
-        {
-            MD5,
-            SHA1,
-            SHA256
-        }
     }
     /* Example of grabing a chunk of a file (from bdzipper)
      * Don't forget your try/catch wrappers

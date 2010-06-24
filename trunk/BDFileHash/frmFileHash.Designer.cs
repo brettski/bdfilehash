@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tbxFile = new System.Windows.Forms.TextBox();
             this.tbxFilesHash = new System.Windows.Forms.TextBox();
@@ -42,14 +43,14 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnGetHashFile = new System.Windows.Forms.Button();
             this.grpBoxHashType = new System.Windows.Forms.GroupBox();
+            this.rbtnSha256 = new System.Windows.Forms.RadioButton();
             this.rbtnSha1 = new System.Windows.Forms.RadioButton();
             this.rbtnMd5 = new System.Windows.Forms.RadioButton();
             this.btnGetCompareFile = new System.Windows.Forms.Button();
             this.btnCompare = new System.Windows.Forms.Button();
             this.btnCreateHash = new System.Windows.Forms.Button();
             this.btnSavetoCompare = new System.Windows.Forms.Button();
-            this.rbtnSha256 = new System.Windows.Forms.RadioButton();
-            this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +81,13 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
+            // 
+            // saveCurrentHashAsDefaultToolStripMenuItem
+            // 
+            this.saveCurrentHashAsDefaultToolStripMenuItem.Name = "saveCurrentHashAsDefaultToolStripMenuItem";
+            this.saveCurrentHashAsDefaultToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.saveCurrentHashAsDefaultToolStripMenuItem.Text = "Save current hash as default";
+            this.saveCurrentHashAsDefaultToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentHashAsDefaultToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -162,6 +170,17 @@
             this.grpBoxHashType.TabStop = false;
             this.grpBoxHashType.Text = "Hash Type";
             // 
+            // rbtnSha256
+            // 
+            this.rbtnSha256.AutoSize = true;
+            this.rbtnSha256.Location = new System.Drawing.Point(122, 15);
+            this.rbtnSha256.Name = "rbtnSha256";
+            this.rbtnSha256.Size = new System.Drawing.Size(68, 17);
+            this.rbtnSha256.TabIndex = 2;
+            this.rbtnSha256.TabStop = true;
+            this.rbtnSha256.Text = "SHA-256";
+            this.rbtnSha256.UseVisualStyleBackColor = true;
+            // 
             // rbtnSha1
             // 
             this.rbtnSha1.AutoSize = true;
@@ -225,29 +244,21 @@
             this.btnSavetoCompare.UseVisualStyleBackColor = true;
             this.btnSavetoCompare.Click += new System.EventHandler(this.btnSavetoCompare_Click);
             // 
-            // rbtnSha256
+            // lblStatus
             // 
-            this.rbtnSha256.AutoSize = true;
-            this.rbtnSha256.Location = new System.Drawing.Point(122, 15);
-            this.rbtnSha256.Name = "rbtnSha256";
-            this.rbtnSha256.Size = new System.Drawing.Size(68, 17);
-            this.rbtnSha256.TabIndex = 2;
-            this.rbtnSha256.TabStop = true;
-            this.rbtnSha256.Text = "SHA-256";
-            this.rbtnSha256.UseVisualStyleBackColor = true;
-            // 
-            // saveCurrentHashAsDefaultToolStripMenuItem
-            // 
-            this.saveCurrentHashAsDefaultToolStripMenuItem.Name = "saveCurrentHashAsDefaultToolStripMenuItem";
-            this.saveCurrentHashAsDefaultToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.saveCurrentHashAsDefaultToolStripMenuItem.Text = "Save current hash as default";
-            this.saveCurrentHashAsDefaultToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentHashAsDefaultToolStripMenuItem_Click);
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(12, 179);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblStatus.TabIndex = 14;
             // 
             // frmFileHash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 196);
+            this.ClientSize = new System.Drawing.Size(492, 201);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnSavetoCompare);
             this.Controls.Add(this.btnCreateHash);
             this.Controls.Add(this.btnCompare);
@@ -298,6 +309,7 @@
         private System.Windows.Forms.Button btnSavetoCompare;
         private System.Windows.Forms.RadioButton rbtnSha256;
         private System.Windows.Forms.ToolStripMenuItem saveCurrentHashAsDefaultToolStripMenuItem;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
 

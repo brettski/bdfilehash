@@ -81,6 +81,7 @@
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHashLib.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="FileTools.cs" />
     <Compile Include="frmFileHash.cs">
       <SubType>Form</SubType>

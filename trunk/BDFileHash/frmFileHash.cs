@@ -18,6 +18,8 @@ namespace BDFileHash
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
                 tbxFile.Text = args[1];
+            lblStatus.Text = string.Empty;
+
         }
 
         private void btnGetHashFile_Click(object sender, EventArgs e)
@@ -53,17 +55,26 @@ namespace BDFileHash
                 return;
             }
             HashTools ht = new HashTools();
+            HashType htype;
             if (rbtnMd5.Checked)
-                ht.CreateMD5FileHash(this.tbxFile.Text);
+            {
+                htype = HashType.MD5;
+            }
             else if (rbtnSha1.Checked)
-                ht.CreateSHA1FileHash(tbxFile.Text);
+            {
+                htype = HashType.SHA1;
+            }
             else if (rbtnSha256.Checked)
-                ht.CreateSHA256FileHash(tbxFile.Text);
+            {
+                htype = HashType.SHA256;   
+            }
             else
             {
                 MessageBox.Show("Invalid Hash Type");
                 return;
             }
+
+            ht.CreateFileHash(tbxFile.Text, htype);
             if (ht.InError)
             {
                 // Throw Error
@@ -71,6 +82,15 @@ namespace BDFileHash
                 return;
             }
             this.tbxFilesHash.Text = ht.Hash;
+            if (true) //TODO: Add auto text file hash search option
+            {
+                if (ht.FindTextHashFile(htype))
+                {
+                    tbxCompareHash.Text  = ht.TextFileHashFound;
+                    lblStatus.Text = string.Format("Hash found in file {0}", ht.TextFileFound);
+
+                }
+            }
         }
 
         private void btnGetCompareFile_Click(object sender, EventArgs e)
@@ -84,7 +104,7 @@ namespace BDFileHash
                 hashCFile = PickAFile(filter);
                 if (string.IsNullOrEmpty(hashCFile))
                     return;
-                tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, FileTools.HashType.MD5);
+                tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.MD5);
             }
             else if (rbtnSha1.Checked || rbtnSha256.Checked)
             {
@@ -93,9 +113,9 @@ namespace BDFileHash
                 if (string.IsNullOrEmpty(hashCFile))
                     return;
                 if (rbtnSha1.Checked)
-                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, FileTools.HashType.SHA1);
+                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.SHA1);
                 else
-                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, FileTools.HashType.SHA256);
+                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.SHA256);
             }
         }
 
@@ -112,11 +132,11 @@ namespace BDFileHash
             // Default to MD5 Hash if not user defined.
             rbtnMd5.Checked = true;
             string v = Properties.Settings.Default.DefaultHashType;
-            if (FileTools.HashType.MD5.ToString() == v)
+            if (HashType.MD5.ToString() == v)
                 rbtnMd5.Checked = true;
-            else if (FileTools.HashType.SHA1.ToString() == v)
+            else if (HashType.SHA1.ToString() == v)
                 rbtnSha1.Checked = true;
-            else if (FileTools.HashType.SHA256.ToString() == v)
+            else if (HashType.SHA256.ToString() == v)
                 rbtnSha256.Checked = true;
             else
                 rbtnMd5.Checked = true;
@@ -143,11 +163,11 @@ namespace BDFileHash
             string v = string.Empty;
 
             if (rbtnMd5.Checked)
-                v = FileTools.HashType.MD5.ToString();
+                v = HashType.MD5.ToString();
             if (rbtnSha1.Checked)
-                v = FileTools.HashType.SHA1.ToString();
+                v = HashType.SHA1.ToString();
             if (rbtnSha256.Checked)
-                v = FileTools.HashType.SHA256.ToString();
+                v = HashType.SHA256.ToString();
             Properties.Settings.Default.DefaultHashType = v;
             Properties.Settings.Default.Save();
             MessageBox.Show(string.Format("Your default hash type is saved as {0}", v), "Save Default Hash Type", MessageBoxButtons.OK);
@@ -158,6 +178,13 @@ namespace BDFileHash
         {
             AboutDialog ad = new AboutDialog();
             ad.ShowDialog();
+        }
+        /// <summary>
+        /// Simple method to clear form statuses for next action
+        /// </summary>
+        private void ClearStatus()
+        {
+            lblStatus.Text = string.Empty;
         }
     }
 }

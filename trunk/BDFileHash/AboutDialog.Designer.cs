@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialog));
             this.label1 = new System.Windows.Forms.Label();
             this.grpbxVersionInfo = new System.Windows.Forms.GroupBox();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.llProductWebsite = new System.Windows.Forms.LinkLabel();
             this.lblDescription = new System.Windows.Forms.Label();
             this.grpbxDescription = new System.Windows.Forms.GroupBox();
-            this.lblVersion = new System.Windows.Forms.Label();
             this.grpbxVersionInfo.SuspendLayout();
             this.grpbxDescription.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,15 @@
             this.grpbxVersionInfo.TabIndex = 1;
             this.grpbxVersionInfo.TabStop = false;
             this.grpbxVersionInfo.Text = "Version Information";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(11, 16);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(105, 13);
+            this.lblVersion.TabIndex = 0;
+            this.lblVersion.Text = "1.0.7, June 23, 2010";
             // 
             // label2
             // 
@@ -109,15 +118,6 @@
             this.grpbxDescription.TabIndex = 6;
             this.grpbxDescription.TabStop = false;
             this.grpbxDescription.Text = "Description";
-            // 
-            // lblVersion
-            // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(11, 16);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(114, 13);
-            this.lblVersion.TabIndex = 0;
-            this.lblVersion.Text = "1.0.0.4, June 12, 2010";
             // 
             // AboutDialog
             // 
