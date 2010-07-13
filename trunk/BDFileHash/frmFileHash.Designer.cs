@@ -51,6 +51,7 @@
             this.btnCreateHash = new System.Windows.Forms.Button();
             this.btnSavetoCompare = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveCurrentHashAsDefaultToolStripMenuItem});
+            this.saveCurrentHashAsDefaultToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
@@ -116,6 +118,7 @@
             this.tbxCompareHash.Name = "tbxCompareHash";
             this.tbxCompareHash.Size = new System.Drawing.Size(341, 20);
             this.tbxCompareHash.TabIndex = 4;
+            this.tbxCompareHash.TextChanged += new System.EventHandler(this.tbxCompareHash_TextChanged);
             // 
             // label1
             // 
@@ -253,6 +256,13 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 13);
             this.lblStatus.TabIndex = 14;
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.settingsToolStripMenuItem.Text = "Settings...";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
             // frmFileHash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +320,7 @@
         private System.Windows.Forms.RadioButton rbtnSha256;
         private System.Windows.Forms.ToolStripMenuItem saveCurrentHashAsDefaultToolStripMenuItem;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

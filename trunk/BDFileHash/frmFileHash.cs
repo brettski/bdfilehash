@@ -82,6 +82,7 @@ namespace BDFileHash
                 return;
             }
             this.tbxFilesHash.Text = ht.Hash;
+            MessageBox.Show("A:" + Properties.Settings.Default.CheckLikeTextfileForHash.ToString());
             if (true) //TODO: Add auto text file hash search option
             {
                 if (ht.FindTextHashFile(htype))
@@ -128,9 +129,9 @@ namespace BDFileHash
 
         private void frmFileHash_Load(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Save();
             // Set some parameters on load
             // Default to MD5 Hash if not user defined.
-            rbtnMd5.Checked = true;
             string v = Properties.Settings.Default.DefaultHashType;
             if (HashType.MD5.ToString() == v)
                 rbtnMd5.Checked = true;
@@ -185,6 +186,19 @@ namespace BDFileHash
         private void ClearStatus()
         {
             lblStatus.Text = string.Empty;
+        }
+
+        private void tbxCompareHash_TextChanged(object sender, EventArgs e)
+        {
+            // Need this event for when the text changes the status is cleared.
+            // Help says this will fire programmatically or with physical change
+            ClearStatus();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSettings frmSet = new frmSettings();
+            frmSet.ShowDialog();
         }
     }
 }
