@@ -18,7 +18,7 @@ namespace BDFileHash
 
         private void llProductWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("IExplore", "http://blog.brettski.com");
+            System.Diagnostics.Process.Start("IExplore", "http://bdfilehash.codeplex.com");
         }
     }
 }

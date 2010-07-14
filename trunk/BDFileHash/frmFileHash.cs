@@ -37,7 +37,8 @@ namespace BDFileHash
 
         private string PickAFile(string filter)
         {
-            this.openFileDialog1.InitialDirectory = "C:";
+            //this.openFileDialog1.InitialDirectory = "C:";
+            this.openFileDialog1.InitialDirectory = Properties.Settings.Default.DefaultStartingFolder;
             this.openFileDialog1.Filter = filter;
             this.openFileDialog1.RestoreDirectory = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)

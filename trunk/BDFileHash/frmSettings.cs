@@ -19,6 +19,7 @@ namespace BDFileHash
         private void frmSettings_Load(object sender, EventArgs e)
         {
             this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
+            this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
 
         }
 
@@ -32,7 +33,19 @@ namespace BDFileHash
         {
             Properties.Settings.Default.Reload();
             this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
+            this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
 
+        }
+
+        private void lblDefaultFolderValue_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.SelectedPath = Properties.Settings.Default.DefaultStartingFolder;
+            folderBrowserDialog1.Description = @"Select default folder";
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                lblDefaultFolderValue.Text = folderBrowserDialog1.SelectedPath;
+                Properties.Settings.Default.DefaultStartingFolder = folderBrowserDialog1.SelectedPath;
+            }
         }
     }
 }

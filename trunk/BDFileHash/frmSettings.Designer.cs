@@ -34,6 +34,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblDefaultFolder = new System.Windows.Forms.Label();
+            this.lblDefaultFolderValue = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // chkCheckLikeTextfileForHash
@@ -55,6 +58,7 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
             // 
             // btnSave
             // 
@@ -86,11 +90,34 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "BD File Hash User Settings";
             // 
+            // lblDefaultFolder
+            // 
+            this.lblDefaultFolder.AutoSize = true;
+            this.lblDefaultFolder.Location = new System.Drawing.Point(14, 101);
+            this.lblDefaultFolder.Name = "lblDefaultFolder";
+            this.lblDefaultFolder.Size = new System.Drawing.Size(115, 13);
+            this.lblDefaultFolder.TabIndex = 5;
+            this.lblDefaultFolder.Text = "Default Starting Folder:";
+            // 
+            // lblDefaultFolderValue
+            // 
+            this.lblDefaultFolderValue.AutoSize = true;
+            this.lblDefaultFolderValue.Location = new System.Drawing.Point(14, 117);
+            this.lblDefaultFolderValue.MaximumSize = new System.Drawing.Size(250, 0);
+            this.lblDefaultFolderValue.MinimumSize = new System.Drawing.Size(250, 0);
+            this.lblDefaultFolderValue.Name = "lblDefaultFolderValue";
+            this.lblDefaultFolderValue.Size = new System.Drawing.Size(250, 13);
+            this.lblDefaultFolderValue.TabIndex = 6;
+            this.lblDefaultFolderValue.Click += new System.EventHandler(this.lblDefaultFolderValue_Click);
+            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Controls.Add(this.lblDefaultFolderValue);
+            this.Controls.Add(this.lblDefaultFolder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnSave);
@@ -112,5 +139,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDefaultFolder;
+        private System.Windows.Forms.Label lblDefaultFolderValue;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

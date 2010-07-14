@@ -66,9 +66,9 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(11, 16);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(105, 13);
+            this.lblVersion.Size = new System.Drawing.Size(100, 13);
             this.lblVersion.TabIndex = 0;
-            this.lblVersion.Text = "1.0.7, June 23, 2010";
+            this.lblVersion.Text = "1.0.8, July 15, 2010";
             // 
             // label2
             // 

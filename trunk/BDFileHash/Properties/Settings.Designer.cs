@@ -82,5 +82,17 @@ namespace BDFileHash.Properties {
                 this["CheckLikeTextfileForHash"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string DefaultStartingFolder {
+            get {
+                return ((string)(this["DefaultStartingFolder"]));
+            }
+            set {
+                this["DefaultStartingFolder"] = value;
+            }
+        }
     }
 }
