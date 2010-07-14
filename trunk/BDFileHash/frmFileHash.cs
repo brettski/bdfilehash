@@ -83,8 +83,7 @@ namespace BDFileHash
                 return;
             }
             this.tbxFilesHash.Text = ht.Hash;
-            MessageBox.Show("A:" + Properties.Settings.Default.CheckLikeTextfileForHash.ToString());
-            if (true) //TODO: Add auto text file hash search option
+            if (Properties.Settings.Default.CheckLikeTextfileForHash) //TODO:Check how setting works when removed from config file
             {
                 if (ht.FindTextHashFile(htype))
                 {
