@@ -68,7 +68,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(100, 13);
             this.lblVersion.TabIndex = 0;
-            this.lblVersion.Text = "1.0.8, July 15, 2010";
+            this.lblVersion.Text = "1.0.9, July ??, 2010";
             // 
             // label2
             // 

@@ -87,7 +87,7 @@ namespace BDFileHash
         {
             try
             {
-                using (FileStream fs = new FileStream(FileToHash , FileMode.Open))
+                using (FileStream fs = new FileStream(FileToHash , FileMode.Open, FileAccess.Read))
                 {
                     MD5 md5 = new MD5CryptoServiceProvider();
                     ByteHash = md5.ComputeHash(fs);
@@ -113,7 +113,7 @@ namespace BDFileHash
         {
             try
             {
-                using (FileStream fs = new FileStream(FileToHash, FileMode.Open))
+                using (FileStream fs = new FileStream(FileToHash, FileMode.Open, FileAccess.Read))
                 {
                     SHA1Managed sha1 = new SHA1Managed();
                     ByteHash = sha1.ComputeHash(fs);
@@ -139,7 +139,7 @@ namespace BDFileHash
         {
             try
             {
-                using (FileStream fs = new FileStream(FileToHash, FileMode.Open))
+                using (FileStream fs = new FileStream(FileToHash, FileMode.Open, FileAccess.Read))
                 {
                     SHA256Managed sha256 = new SHA256Managed();
                     ByteHash = sha256.ComputeHash(fs);
