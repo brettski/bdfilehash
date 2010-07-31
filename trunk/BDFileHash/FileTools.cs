@@ -46,7 +46,7 @@ namespace BDFileHash
                 return string.Empty;
             using (StreamReader sr = fi.OpenText())
             {
-                return Regex.Match(sr.ReadToEnd(), HashRegEx, RegexOptions.IgnoreCase).Value;
+                return Regex.Match(sr.ReadToEnd(), HashRegEx, RegexOptions.IgnoreCase).Value.Trim();
             }
         }
     }

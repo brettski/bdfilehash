@@ -6,13 +6,13 @@
       <Value Profile="(Default)">1048576</Value>
     </Setting>
     <Setting Name="MD5RegEx" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">^([0-9a-fA-F]{32})$</Value>
+      <Value Profile="(Default)">([\s?][0-9a-fA-F]{32}[\s?])</Value>
     </Setting>
     <Setting Name="SHA1RegEx" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">^([0-9a-fA-F]{40})$</Value>
+      <Value Profile="(Default)">([\s?][0-9a-fA-F]{40}[\s?])</Value>
     </Setting>
     <Setting Name="SHA256RegEx" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">^([0-9a-fA-F]{64})$</Value>
+      <Value Profile="(Default)">([\s?][0-9a-fA-F]{64}[\s?])</Value>
     </Setting>
     <Setting Name="DefaultHashType" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
