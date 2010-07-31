@@ -18,22 +18,33 @@ namespace BDFileHash
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
-            this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
+            ActionLoadUserSettings();
 
+        }
+
+        private void ActionLoadUserSettings()
+        {
+            this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
+            this.chkHashFileOnLoad.Checked = Properties.Settings.Default.HashFileOnLoad;
+            this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
+        }
+
+        private void ActionWriteUserSettings()
+        {
+            Properties.Settings.Default.CheckLikeTextfileForHash = this.chkCheckLikeTextfileForHash.Checked;
+            Properties.Settings.Default.HashFileOnLoad = this.chkHashFileOnLoad.Checked;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.CheckLikeTextfileForHash = this.chkCheckLikeTextfileForHash.Checked;
+            ActionWriteUserSettings();
             Properties.Settings.Default.Save();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Reload();
-            this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
-            this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
+            ActionLoadUserSettings();
 
         }
 

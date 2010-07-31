@@ -27,7 +27,8 @@ namespace BDFileHash
         }
         private bool FileCheck()
         {
-            if (!File.Exists(FileToHash))
+            FileInfo fi = new FileInfo(FileToHash);
+            if (!fi.Exists)
             {
                 string f2h;
                 if (string.IsNullOrEmpty(FileToHash))
@@ -39,6 +40,7 @@ namespace BDFileHash
                 return false;
             }
             InError = false;
+            PathToFileToHash = fi.Directory.FullName;
             return true;
         }
 
@@ -169,14 +171,25 @@ namespace BDFileHash
         /// <returns>Result if file was found</returns>
         public bool FindTextHashFile(HashType ht)
         {
+            TextFileFound = string.Empty;
             if (!FileCheck())
                 return false;
             FileInfo fi = new FileInfo(FileToHash);
             string[] files = Directory.GetFiles(fi.DirectoryName, Path.GetFileNameWithoutExtension(fi.FullName) + "*");
             if (files.Length < 1)
                 return false;
-            TextFileFound = files[0];
-            TextFileHashFound = FileTools.FindHashInFile(files[0], ht);
+            for (int i = 0; i < files.Length; i++)
+            {
+                if (FileToHash != files[i])
+                {
+                    TextFileHashFound = FileTools.FindHashInFile(files[i], ht);
+                    if (TextFileHashFound.Length > 0)
+                    {
+                        TextFileFound = files[i];
+                        i = files.Length + 1;
+                    }
+                }
+            }
             return TextFileHashFound.Length > 0;
         }
 
@@ -188,5 +201,6 @@ namespace BDFileHash
         public byte[] ByteHash { get; private set; }
         public string TextFileFound { get; private set; }
         public string TextFileHashFound { get; private set; }
+        public string PathToFileToHash { get; private set; }
     }
 }

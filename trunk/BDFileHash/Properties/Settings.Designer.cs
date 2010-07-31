@@ -94,5 +94,17 @@ namespace BDFileHash.Properties {
                 this["DefaultStartingFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HashFileOnLoad {
+            get {
+                return ((bool)(this["HashFileOnLoad"]));
+            }
+            set {
+                this["HashFileOnLoad"] = value;
+            }
+        }
     }
 }

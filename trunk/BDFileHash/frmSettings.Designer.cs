@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettings));
             this.chkCheckLikeTextfileForHash = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkHashFileOnLoad = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,16 +49,15 @@
             this.chkCheckLikeTextfileForHash.Text = "Check like file name for hash value";
             this.chkCheckLikeTextfileForHash.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkHashFileOnLoad
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(36, 72);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.Visible = false;
+            this.chkHashFileOnLoad.AutoSize = true;
+            this.chkHashFileOnLoad.Location = new System.Drawing.Point(36, 72);
+            this.chkHashFileOnLoad.Name = "chkHashFileOnLoad";
+            this.chkHashFileOnLoad.Size = new System.Drawing.Size(174, 17);
+            this.chkHashFileOnLoad.TabIndex = 1;
+            this.chkHashFileOnLoad.Text = "Hash file on \'Send To\' app start";
+            this.chkHashFileOnLoad.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -121,7 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.chkHashFileOnLoad);
             this.Controls.Add(this.chkCheckLikeTextfileForHash);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSettings";
@@ -135,7 +134,7 @@
         #endregion
 
         private System.Windows.Forms.CheckBox chkCheckLikeTextfileForHash;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chkHashFileOnLoad;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label label1;

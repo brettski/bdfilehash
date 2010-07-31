@@ -11,13 +11,20 @@ namespace BDFileHash
 {
     public partial class frmFileHash : Form
     {
+        // class variables
+        private bool isSendTo = false;
+        private string currentFolder = string.Empty;
+
         public frmFileHash()
         {
             InitializeComponent();
             // get command line args and see if filename was passed in
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
+            {
                 tbxFile.Text = args[1];
+                isSendTo = true;
+            }
             lblStatus.Text = string.Empty;
 
         }
@@ -37,8 +44,7 @@ namespace BDFileHash
 
         private string PickAFile(string filter)
         {
-            //this.openFileDialog1.InitialDirectory = "C:";
-            this.openFileDialog1.InitialDirectory = Properties.Settings.Default.DefaultStartingFolder;
+            this.openFileDialog1.InitialDirectory = currentFolder;
             this.openFileDialog1.Filter = filter;
             this.openFileDialog1.RestoreDirectory = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -49,10 +55,15 @@ namespace BDFileHash
 
         private void btnCreateHash_Click(object sender, EventArgs e)
         {
+            ActionCreateHash();
+        }
+
+        private void ActionCreateHash()
+        {
             // Verify there is a file value and the file exists, then calculate the hash
             if (!(tbxFile.Text.Length > 0 && System.IO.File.Exists(tbxFile.Text)))
             {
-                MessageBox.Show(String.Format("File textbox empty or file doesn't exist. ({0})",tbxFile.Text));
+                MessageBox.Show(String.Format("File textbox empty or file doesn't exist. ({0})", tbxFile.Text));
                 return;
             }
             HashTools ht = new HashTools();
@@ -67,7 +78,7 @@ namespace BDFileHash
             }
             else if (rbtnSha256.Checked)
             {
-                htype = HashType.SHA256;   
+                htype = HashType.SHA256;
             }
             else
             {
@@ -83,11 +94,12 @@ namespace BDFileHash
                 return;
             }
             this.tbxFilesHash.Text = ht.Hash;
+            currentFolder = ht.PathToFileToHash;
             if (Properties.Settings.Default.CheckLikeTextfileForHash) //TODO:Check how setting works when removed from config file
             {
                 if (ht.FindTextHashFile(htype))
                 {
-                    tbxCompareHash.Text  = ht.TextFileHashFound;
+                    tbxCompareHash.Text = ht.TextFileHashFound;
                     lblStatus.Text = string.Format("Hash found in file {0}", ht.TextFileFound);
 
                 }
@@ -129,6 +141,7 @@ namespace BDFileHash
 
         private void frmFileHash_Load(object sender, EventArgs e)
         {
+            // Creates user config file with defaults if there isn't one.
             Properties.Settings.Default.Save();
             // Set some parameters on load
             // Default to MD5 Hash if not user defined.
@@ -141,6 +154,12 @@ namespace BDFileHash
                 rbtnSha256.Checked = true;
             else
                 rbtnMd5.Checked = true;
+            currentFolder = Properties.Settings.Default.DefaultStartingFolder;
+            if (isSendTo && Properties.Settings.Default.HashFileOnLoad)
+            {
+                ActionCreateHash();
+            }
+            
         }
 
         private void btnCompare_Click(object sender, EventArgs e)
