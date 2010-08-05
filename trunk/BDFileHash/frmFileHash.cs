@@ -166,6 +166,8 @@ namespace BDFileHash
         {
             // Compare the textboxes, simple
             string msg = string.Empty;
+            tbxFilesHash.Text = tbxFilesHash.Text.ToLower();
+            tbxCompareHash.Text = tbxCompareHash.Text.ToLower();
             if (tbxFilesHash.Text == tbxCompareHash.Text)
                 msg = @"Hashes are the same!";
             else
