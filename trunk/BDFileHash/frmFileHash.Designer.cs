@@ -33,6 +33,7 @@
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tbxFile = new System.Windows.Forms.TextBox();
             this.tbxFilesHash = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.btnCreateHash = new System.Windows.Forms.Button();
             this.btnSavetoCompare = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,13 @@
             this.saveCurrentHashAsDefaultToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.saveCurrentHashAsDefaultToolStripMenuItem.Text = "Save current hash as default";
             this.saveCurrentHashAsDefaultToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentHashAsDefaultToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.settingsToolStripMenuItem.Text = "Settings...";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -243,7 +250,7 @@
             this.btnSavetoCompare.Name = "btnSavetoCompare";
             this.btnSavetoCompare.Size = new System.Drawing.Size(106, 23);
             this.btnSavetoCompare.TabIndex = 13;
-            this.btnSavetoCompare.Text = "Save to Compare";
+            this.btnSavetoCompare.Text = "Move to Compare";
             this.btnSavetoCompare.UseVisualStyleBackColor = true;
             this.btnSavetoCompare.Click += new System.EventHandler(this.btnSavetoCompare_Click);
             // 
@@ -255,13 +262,6 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 13);
             this.lblStatus.TabIndex = 14;
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.settingsToolStripMenuItem.Text = "Settings...";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // frmFileHash
             // 
