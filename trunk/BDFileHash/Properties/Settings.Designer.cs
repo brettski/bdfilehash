@@ -34,7 +34,7 @@ namespace BDFileHash.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("([\\s?][0-9a-fA-F]{32}[\\s?])")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\b[0-9a-fA-F]{32}\\b")]
         public string MD5RegEx {
             get {
                 return ((string)(this["MD5RegEx"]));
@@ -43,7 +43,7 @@ namespace BDFileHash.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("([\\s?][0-9a-fA-F]{40}[\\s?])")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\b[0-9a-fA-F]{40}\\b")]
         public string SHA1RegEx {
             get {
                 return ((string)(this["SHA1RegEx"]));
@@ -52,7 +52,7 @@ namespace BDFileHash.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("([\\s?][0-9a-fA-F]{64}[\\s?])")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\b[0-9a-fA-F]{64}\\b")]
         public string SHA256RegEx {
             get {
                 return ((string)(this["SHA256RegEx"]));
