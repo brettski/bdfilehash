@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialog));
             this.label1 = new System.Windows.Forms.Label();
             this.grpbxVersionInfo = new System.Windows.Forms.GroupBox();
-            this.lblVersion = new System.Windows.Forms.Label();
+            this.lblVersionInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.llProductWebsite = new System.Windows.Forms.LinkLabel();
@@ -53,7 +53,7 @@
             // 
             // grpbxVersionInfo
             // 
-            this.grpbxVersionInfo.Controls.Add(this.lblVersion);
+            this.grpbxVersionInfo.Controls.Add(this.lblVersionInfo);
             this.grpbxVersionInfo.Location = new System.Drawing.Point(16, 173);
             this.grpbxVersionInfo.Name = "grpbxVersionInfo";
             this.grpbxVersionInfo.Size = new System.Drawing.Size(236, 65);
@@ -61,14 +61,14 @@
             this.grpbxVersionInfo.TabStop = false;
             this.grpbxVersionInfo.Text = "Version Information";
             // 
-            // lblVersion
+            // lblVersionInfo
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(11, 16);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(121, 13);
-            this.lblVersion.TabIndex = 0;
-            this.lblVersion.Text = "1.0.10, August 08, 2010";
+            this.lblVersionInfo.AutoSize = true;
+            this.lblVersionInfo.Location = new System.Drawing.Point(6, 16);
+            this.lblVersionInfo.Name = "lblVersionInfo";
+            this.lblVersionInfo.Size = new System.Drawing.Size(60, 13);
+            this.lblVersionInfo.TabIndex = 1;
+            this.lblVersionInfo.Text = "VersionInfo";
             // 
             // label2
             // 
@@ -151,7 +151,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel llProductWebsite;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.GroupBox grpbxDescription;
+        private System.Windows.Forms.Label lblVersionInfo;
     }
 }
