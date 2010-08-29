@@ -172,6 +172,7 @@ namespace BDFileHash
         public bool FindTextHashFile(HashType ht)
         {
             TextFileFound = string.Empty;
+            TextFileHashFound = string.Empty;
             if (!FileCheck())
                 return false;
             FileInfo fi = new FileInfo(FileToHash);

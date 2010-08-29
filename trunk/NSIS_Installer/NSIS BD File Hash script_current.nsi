@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "BD File Hash"
-!define PRODUCT_VERSION "1.0.10"
+!define PRODUCT_VERSION "1.0.11"
 !define PRODUCT_PUBLISHER "Brettski"
 !define PRODUCT_WEB_SITE "http://bdfilehash.codeplex.com"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\BDFileHash.exe"
