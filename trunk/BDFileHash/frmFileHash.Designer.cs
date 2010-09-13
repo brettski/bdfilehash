@@ -35,6 +35,8 @@
             this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbxFile = new System.Windows.Forms.TextBox();
             this.tbxFilesHash = new System.Windows.Forms.TextBox();
             this.tbxCompareHash = new System.Windows.Forms.TextBox();
@@ -61,7 +63,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.aboutToolStripMenuItem1});
+            this.aboutToolStripMenuItem1,
+            this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(492, 24);
@@ -105,6 +108,21 @@
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getColorToolStripMenuItem});
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.testToolStripMenuItem.Text = "Test";
+            // 
+            // getColorToolStripMenuItem
+            // 
+            this.getColorToolStripMenuItem.Name = "getColorToolStripMenuItem";
+            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.getColorToolStripMenuItem.Text = "GetColor";
+            this.getColorToolStripMenuItem.Click += new System.EventHandler(this.getColorToolStripMenuItem_Click);
+            // 
             // tbxFile
             // 
             this.tbxFile.Location = new System.Drawing.Point(15, 65);
@@ -118,6 +136,7 @@
             this.tbxFilesHash.Name = "tbxFilesHash";
             this.tbxFilesHash.Size = new System.Drawing.Size(341, 20);
             this.tbxFilesHash.TabIndex = 3;
+            this.tbxFilesHash.TextChanged += new System.EventHandler(this.tbxFilesHash_TextChanged);
             // 
             // tbxCompareHash
             // 
@@ -321,6 +340,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveCurrentHashAsDefaultToolStripMenuItem;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getColorToolStripMenuItem;
     }
 }
 

@@ -49,7 +49,7 @@ namespace BDFileHash
             this.openFileDialog1.RestoreDirectory = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 return openFileDialog1.FileName;
-            else 
+            else
                 return string.Empty;
         }
 
@@ -141,6 +141,8 @@ namespace BDFileHash
 
         private void frmFileHash_Load(object sender, EventArgs e)
         {
+            // ** To hide our testing item on the menu strip **
+            testToolStripMenuItem.Visible = true;
             // Creates user config file with defaults if there isn't one.
             Properties.Settings.Default.Save();
             // Set some parameters on load
@@ -159,10 +161,15 @@ namespace BDFileHash
             {
                 ActionCreateHash();
             }
-            
+
         }
 
         private void btnCompare_Click(object sender, EventArgs e)
+        {
+            ActionCompareHashes();
+        }
+
+        private void ActionCompareHashes()
         {
             // Compare the textboxes, simple
             string msg = string.Empty;
@@ -173,6 +180,39 @@ namespace BDFileHash
             else
                 msg = @"Hashes are different!";
             MessageBox.Show(msg, "Compare Hashes", MessageBoxButtons.OK);
+        }
+
+
+        /// <summary>
+        /// Simple method to clear form statuses for next action
+        /// </summary>
+        private void ClearStatus()
+        {
+            lblStatus.Text = string.Empty;
+        }
+
+        private void tbxCompareHash_TextChanged(object sender, EventArgs e)
+        {
+            // Need this event for when the text changes the status is cleared.
+            // Help says this will fire programmatically or with physical change
+            ClearStatus();
+        }
+
+        private void tbxFilesHash_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AboutDialog ad = new AboutDialog();
+            ad.ShowDialog();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSettings frmSet = new frmSettings();
+            frmSet.ShowDialog();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,33 +233,43 @@ namespace BDFileHash
             Properties.Settings.Default.DefaultHashType = v;
             Properties.Settings.Default.Save();
             MessageBox.Show(string.Format("Your default hash type is saved as {0}", v), "Save Default Hash Type", MessageBoxButtons.OK);
-            
+
         }
 
-        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SetCompareStatus(CompareStatus cstat)
         {
-            AboutDialog ad = new AboutDialog();
-            ad.ShowDialog();
-        }
-        /// <summary>
-        /// Simple method to clear form statuses for next action
-        /// </summary>
-        private void ClearStatus()
-        {
-            lblStatus.Text = string.Empty;
+            switch (cstat)
+            {
+                case CompareStatus.clear:
+                    this.tbxFilesHash.BackColor = Color.White;
+                    this.tbxCompareHash.BackColor = Color.White;
+                    break;
+
+                case CompareStatus.different:
+                    this.tbxFilesHash.BackColor = Color.Tomato;
+                    this.tbxCompareHash.BackColor = Color.Tomato;
+                    break;
+
+                case CompareStatus.same:
+                    this.tbxFilesHash.BackColor = Color.LightGreen;
+                    this.tbxCompareHash.BackColor = Color.LightGreen;
+                    break;
+    
+            }
         }
 
-        private void tbxCompareHash_TextChanged(object sender, EventArgs e)
+        enum CompareStatus
         {
-            // Need this event for when the text changes the status is cleared.
-            // Help says this will fire programmatically or with physical change
-            ClearStatus();
+            clear,
+            different,
+            same
+        }
+// **** Testing methods        
+        private void getColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetCompareStatus(CompareStatus.different);
+            //MessageBox.Show(this, "Hello there");
         }
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmSettings frmSet = new frmSettings();
-            frmSet.ShowDialog();
-        }
     }
 }
