@@ -176,10 +176,18 @@ namespace BDFileHash
             tbxFilesHash.Text = tbxFilesHash.Text.ToLower().Trim();
             tbxCompareHash.Text = tbxCompareHash.Text.ToLower().Trim();
             if (tbxFilesHash.Text == tbxCompareHash.Text)
+            {
                 msg = @"Hashes are the same!";
+                if (true) //TODO: Add setting for this feature
+                    SetCompareStatus(CompareStatus.same); 
+            }
             else
+            {
                 msg = @"Hashes are different!";
-            MessageBox.Show(msg, "Compare Hashes", MessageBoxButtons.OK);
+                if (true)
+                    SetCompareStatus(CompareStatus.different);
+            }
+            //MessageBox.Show(msg, "Compare Hashes", MessageBoxButtons.OK);
         }
 
 
@@ -196,10 +204,18 @@ namespace BDFileHash
             // Need this event for when the text changes the status is cleared.
             // Help says this will fire programmatically or with physical change
             ClearStatus();
+            if (this.tbxCompareHash.Text.Length > 0 && this.tbxFilesHash.Text.Length > 0)
+                ActionCompareHashes();
+            else
+                SetCompareStatus(CompareStatus.clear);
         }
 
         private void tbxFilesHash_TextChanged(object sender, EventArgs e)
         {
+            if (this.tbxCompareHash.Text.Length > 0 && this.tbxFilesHash.Text.Length > 0)
+                ActionCompareHashes();
+            else
+                SetCompareStatus(CompareStatus.clear);
 
         }
 
