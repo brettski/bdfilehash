@@ -26,6 +26,48 @@ namespace BDFileHash
                 isSendTo = true;
             }
             lblStatus.Text = string.Empty;
+            // Tool tip values
+            toolTip1.AutoPopDelay = 10000;  // 10 sec.
+            //TODO:Option to disable tool tips
+            // Setup tool tips
+            string ttmsg = string.Empty;
+            ttmsg = "Clear all text boxes";
+            toolTip1.SetToolTip(this.btnClearAll, ttmsg);
+            ttmsg = "Pick a text file to parse a hash value out of";
+            toolTip1.SetToolTip(this.btnGetCompareFile, ttmsg);
+            ttmsg = "Pick a file to hash";
+            toolTip1.SetToolTip(this.btnGetHashFile, ttmsg);
+            ttmsg = "Calculates hash for file in file to hash text box";
+            toolTip1.SetToolTip(this.btnCreateHash, ttmsg);
+            ttmsg = "Move the file's hash value to the compare hash field\nso you may hash another file and compare them";
+            toolTip1.SetToolTip(this.btnSavetoCompare, ttmsg);
+            ttmsg = "Don't see the hash type you need?\nSend us a note and we'll do what we can to add it!";
+            toolTip1.SetToolTip(this.grpBoxHashType, ttmsg);
+        }
+
+        private void frmFileHash_Load(object sender, EventArgs e)
+        {
+            // ** To hide our testing item on the menu strip **
+            testToolStripMenuItem.Visible = false;
+            // --------------------------------------------- **
+            // Creates user config file with defaults if there isn't one.
+            Properties.Settings.Default.Save();
+            // Set some parameters on load
+            // Default to MD5 Hash if not user defined.
+            string v = Properties.Settings.Default.DefaultHashType;
+            if (HashType.MD5.ToString() == v)
+                rbtnMd5.Checked = true;
+            else if (HashType.SHA1.ToString() == v)
+                rbtnSha1.Checked = true;
+            else if (HashType.SHA256.ToString() == v)
+                rbtnSha256.Checked = true;
+            else
+                rbtnMd5.Checked = true;
+            currentFolder = Properties.Settings.Default.DefaultStartingFolder;
+            if (isSendTo && Properties.Settings.Default.HashFileOnLoad)
+            {
+                ActionCreateHash();
+            }
 
         }
 
@@ -100,7 +142,7 @@ namespace BDFileHash
                 if (ht.FindTextHashFile(htype))
                 {
                     tbxCompareHash.Text = ht.TextFileHashFound;
-                    lblStatus.Text = string.Format("Hash found in file {0}", ht.TextFileFound);
+                    lblStatus.Text = string.Format("Hash value found in file {0}", ht.TextFileFound);
 
                 }
             }
@@ -139,36 +181,6 @@ namespace BDFileHash
             tbxFilesHash.Text = string.Empty;
         }
 
-        private void frmFileHash_Load(object sender, EventArgs e)
-        {
-            // ** To hide our testing item on the menu strip **
-            testToolStripMenuItem.Visible = true;
-            // Creates user config file with defaults if there isn't one.
-            Properties.Settings.Default.Save();
-            // Set some parameters on load
-            // Default to MD5 Hash if not user defined.
-            string v = Properties.Settings.Default.DefaultHashType;
-            if (HashType.MD5.ToString() == v)
-                rbtnMd5.Checked = true;
-            else if (HashType.SHA1.ToString() == v)
-                rbtnSha1.Checked = true;
-            else if (HashType.SHA256.ToString() == v)
-                rbtnSha256.Checked = true;
-            else
-                rbtnMd5.Checked = true;
-            currentFolder = Properties.Settings.Default.DefaultStartingFolder;
-            if (isSendTo && Properties.Settings.Default.HashFileOnLoad)
-            {
-                ActionCreateHash();
-            }
-
-        }
-
-        private void btnCompare_Click(object sender, EventArgs e)
-        {
-            ActionCompareHashes();
-        }
-
         private void ActionCompareHashes()
         {
             // Compare the textboxes, simple
@@ -178,18 +190,15 @@ namespace BDFileHash
             if (tbxFilesHash.Text == tbxCompareHash.Text)
             {
                 msg = @"Hashes are the same!";
-                if (true) //TODO: Add setting for this feature
-                    SetCompareStatus(CompareStatus.same); 
+                SetCompareStatus(CompareStatus.same);
             }
             else
             {
                 msg = @"Hashes are different!";
-                if (true)
-                    SetCompareStatus(CompareStatus.different);
+                SetCompareStatus(CompareStatus.different);
             }
             //MessageBox.Show(msg, "Compare Hashes", MessageBoxButtons.OK);
         }
-
 
         /// <summary>
         /// Simple method to clear form statuses for next action
@@ -262,15 +271,17 @@ namespace BDFileHash
                     break;
 
                 case CompareStatus.different:
-                    this.tbxFilesHash.BackColor = Color.Tomato;
-                    this.tbxCompareHash.BackColor = Color.Tomato;
+                    Color cd = Color.FromArgb(255, 0, 0);
+                    this.tbxFilesHash.BackColor = cd;
+                    this.tbxCompareHash.BackColor = cd;
                     break;
 
                 case CompareStatus.same:
-                    this.tbxFilesHash.BackColor = Color.LightGreen;
-                    this.tbxCompareHash.BackColor = Color.LightGreen;
+                    Color cs = Color.FromArgb(0, 255, 0);
+                    this.tbxFilesHash.BackColor = cs;
+                    this.tbxCompareHash.BackColor = cs;
                     break;
-    
+
             }
         }
 
@@ -280,11 +291,40 @@ namespace BDFileHash
             different,
             same
         }
-// **** Testing methods        
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            this.tbxFile.Text = string.Empty;
+            this.tbxFilesHash.Text = string.Empty;
+            this.tbxCompareHash.Text = string.Empty;
+        }
+
+        private void tbxFile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if('\x1' == e.KeyChar)
+                tbxFile.SelectAll();
+        }
+
+        private void tbxFilesHash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ('\x1' == e.KeyChar)
+                tbxFilesHash.SelectAll();
+        }
+
+        private void tbxCompareHash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ('\x1' == e.KeyChar)
+                tbxCompareHash.SelectAll();
+        }
+
+        // **** Testing methods        
         private void getColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetCompareStatus(CompareStatus.different);
-            //MessageBox.Show(this, "Hello there");
+            //SetCompareStatus(CompareStatus.different);
+            string smsg;
+            smsg = string.Format("init {0}; reshow {1}; pop {2}", toolTip1.InitialDelay, toolTip1.ReshowDelay, toolTip1.AutoPopDelay);
+            MessageBox.Show(this, smsg);
+            this.tbxCompareHash.SelectAll();
         }
 
     }

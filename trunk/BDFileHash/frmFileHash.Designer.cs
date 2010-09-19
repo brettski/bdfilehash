@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFileHash));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,10 +51,11 @@
             this.rbtnSha1 = new System.Windows.Forms.RadioButton();
             this.rbtnMd5 = new System.Windows.Forms.RadioButton();
             this.btnGetCompareFile = new System.Windows.Forms.Button();
-            this.btnCompare = new System.Windows.Forms.Button();
             this.btnCreateHash = new System.Windows.Forms.Button();
             this.btnSavetoCompare = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnClearAll = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +121,7 @@
             // getColorToolStripMenuItem
             // 
             this.getColorToolStripMenuItem.Name = "getColorToolStripMenuItem";
-            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.getColorToolStripMenuItem.Text = "GetColor";
             this.getColorToolStripMenuItem.Click += new System.EventHandler(this.getColorToolStripMenuItem_Click);
             // 
@@ -127,24 +129,27 @@
             // 
             this.tbxFile.Location = new System.Drawing.Point(15, 65);
             this.tbxFile.Name = "tbxFile";
-            this.tbxFile.Size = new System.Drawing.Size(341, 20);
+            this.tbxFile.Size = new System.Drawing.Size(346, 20);
             this.tbxFile.TabIndex = 2;
+            this.tbxFile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFile_KeyPress);
             // 
             // tbxFilesHash
             // 
             this.tbxFilesHash.Location = new System.Drawing.Point(15, 109);
             this.tbxFilesHash.Name = "tbxFilesHash";
-            this.tbxFilesHash.Size = new System.Drawing.Size(341, 20);
+            this.tbxFilesHash.Size = new System.Drawing.Size(346, 20);
             this.tbxFilesHash.TabIndex = 3;
             this.tbxFilesHash.TextChanged += new System.EventHandler(this.tbxFilesHash_TextChanged);
+            this.tbxFilesHash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFilesHash_KeyPress);
             // 
             // tbxCompareHash
             // 
             this.tbxCompareHash.Location = new System.Drawing.Point(15, 154);
             this.tbxCompareHash.Name = "tbxCompareHash";
-            this.tbxCompareHash.Size = new System.Drawing.Size(341, 20);
+            this.tbxCompareHash.Size = new System.Drawing.Size(346, 20);
             this.tbxCompareHash.TabIndex = 4;
             this.tbxCompareHash.TextChanged += new System.EventHandler(this.tbxCompareHash_TextChanged);
+            this.tbxCompareHash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCompareHash_KeyPress);
             // 
             // label1
             // 
@@ -179,7 +184,7 @@
             // 
             // btnGetHashFile
             // 
-            this.btnGetHashFile.Location = new System.Drawing.Point(362, 65);
+            this.btnGetHashFile.Location = new System.Drawing.Point(374, 65);
             this.btnGetHashFile.Name = "btnGetHashFile";
             this.btnGetHashFile.Size = new System.Drawing.Size(24, 20);
             this.btnGetHashFile.TabIndex = 8;
@@ -202,7 +207,7 @@
             // rbtnSha256
             // 
             this.rbtnSha256.AutoSize = true;
-            this.rbtnSha256.Location = new System.Drawing.Point(122, 15);
+            this.rbtnSha256.Location = new System.Drawing.Point(131, 15);
             this.rbtnSha256.Name = "rbtnSha256";
             this.rbtnSha256.Size = new System.Drawing.Size(68, 17);
             this.rbtnSha256.TabIndex = 2;
@@ -213,7 +218,7 @@
             // rbtnSha1
             // 
             this.rbtnSha1.AutoSize = true;
-            this.rbtnSha1.Location = new System.Drawing.Point(60, 15);
+            this.rbtnSha1.Location = new System.Drawing.Point(69, 15);
             this.rbtnSha1.Name = "rbtnSha1";
             this.rbtnSha1.Size = new System.Drawing.Size(56, 17);
             this.rbtnSha1.TabIndex = 1;
@@ -234,7 +239,7 @@
             // 
             // btnGetCompareFile
             // 
-            this.btnGetCompareFile.Location = new System.Drawing.Point(362, 154);
+            this.btnGetCompareFile.Location = new System.Drawing.Point(374, 154);
             this.btnGetCompareFile.Name = "btnGetCompareFile";
             this.btnGetCompareFile.Size = new System.Drawing.Size(24, 20);
             this.btnGetCompareFile.TabIndex = 10;
@@ -242,20 +247,9 @@
             this.btnGetCompareFile.UseVisualStyleBackColor = true;
             this.btnGetCompareFile.Click += new System.EventHandler(this.btnGetCompareFile_Click);
             // 
-            // btnCompare
-            // 
-            this.btnCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompare.Location = new System.Drawing.Point(393, 154);
-            this.btnCompare.Name = "btnCompare";
-            this.btnCompare.Size = new System.Drawing.Size(75, 23);
-            this.btnCompare.TabIndex = 11;
-            this.btnCompare.Text = "Compare";
-            this.btnCompare.UseVisualStyleBackColor = true;
-            this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
-            // 
             // btnCreateHash
             // 
-            this.btnCreateHash.Location = new System.Drawing.Point(393, 65);
+            this.btnCreateHash.Location = new System.Drawing.Point(405, 65);
             this.btnCreateHash.Name = "btnCreateHash";
             this.btnCreateHash.Size = new System.Drawing.Size(75, 23);
             this.btnCreateHash.TabIndex = 12;
@@ -265,7 +259,7 @@
             // 
             // btnSavetoCompare
             // 
-            this.btnSavetoCompare.Location = new System.Drawing.Point(362, 109);
+            this.btnSavetoCompare.Location = new System.Drawing.Point(374, 109);
             this.btnSavetoCompare.Name = "btnSavetoCompare";
             this.btnSavetoCompare.Size = new System.Drawing.Size(106, 23);
             this.btnSavetoCompare.TabIndex = 13;
@@ -282,15 +276,25 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 13);
             this.lblStatus.TabIndex = 14;
             // 
+            // btnClearAll
+            // 
+            this.btnClearAll.Location = new System.Drawing.Point(405, 152);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(75, 23);
+            this.btnClearAll.TabIndex = 15;
+            this.btnClearAll.Text = "Clear All";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
             // frmFileHash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 201);
+            this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnSavetoCompare);
             this.Controls.Add(this.btnCreateHash);
-            this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.btnGetCompareFile);
             this.Controls.Add(this.grpBoxHashType);
             this.Controls.Add(this.btnGetHashFile);
@@ -333,7 +337,6 @@
         private System.Windows.Forms.RadioButton rbtnMd5;
         private System.Windows.Forms.RadioButton rbtnSha1;
         private System.Windows.Forms.Button btnGetCompareFile;
-        private System.Windows.Forms.Button btnCompare;
         private System.Windows.Forms.Button btnCreateHash;
         private System.Windows.Forms.Button btnSavetoCompare;
         private System.Windows.Forms.RadioButton rbtnSha256;
@@ -342,6 +345,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getColorToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnClearAll;
     }
 }
 
