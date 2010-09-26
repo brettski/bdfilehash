@@ -121,7 +121,7 @@
             // getColorToolStripMenuItem
             // 
             this.getColorToolStripMenuItem.Name = "getColorToolStripMenuItem";
-            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.getColorToolStripMenuItem.Text = "GetColor";
             this.getColorToolStripMenuItem.Click += new System.EventHandler(this.getColorToolStripMenuItem_Click);
             // 
@@ -177,10 +177,6 @@
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Compare Hash";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // btnGetHashFile
             // 
