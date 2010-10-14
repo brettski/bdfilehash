@@ -127,14 +127,16 @@ namespace BDFileHash
                 MessageBox.Show("Invalid Hash Type");
                 return;
             }
-
+            Cursor.Current = Cursors.WaitCursor;
             ht.CreateFileHash(tbxFile.Text, htype);
             if (ht.InError)
             {
                 // Throw Error
                 MessageBox.Show("ERROR: " + ht.ErrorMsg);
+                Cursor.Current = Cursors.Default;
                 return;
             }
+            Cursor.Current = Cursors.Default;
             this.tbxFilesHash.Text = ht.Hash;
             currentFolder = ht.PathToFileToHash;
             if (Properties.Settings.Default.CheckLikeTextfileForHash) //TODO:Check how setting works when removed from config file
