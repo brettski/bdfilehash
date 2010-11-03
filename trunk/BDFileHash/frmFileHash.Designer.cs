@@ -35,6 +35,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchHashingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,8 @@
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveCurrentHashAsDefaultToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.batchHashingToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
@@ -103,6 +105,13 @@
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // batchHashingToolStripMenuItem
+            // 
+            this.batchHashingToolStripMenuItem.Name = "batchHashingToolStripMenuItem";
+            this.batchHashingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.batchHashingToolStripMenuItem.Text = "Batch Hashing";
+            this.batchHashingToolStripMenuItem.Click += new System.EventHandler(this.batchHashingToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
@@ -117,6 +126,7 @@
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Visible = false;
             // 
             // getColorToolStripMenuItem
             // 
@@ -127,20 +137,26 @@
             // 
             // tbxFile
             // 
+            this.tbxFile.AllowDrop = true;
             this.tbxFile.Location = new System.Drawing.Point(15, 65);
             this.tbxFile.Name = "tbxFile";
             this.tbxFile.Size = new System.Drawing.Size(346, 20);
             this.tbxFile.TabIndex = 2;
+            this.tbxFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxFile_DragDrop);
             this.tbxFile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFile_KeyPress);
+            this.tbxFile.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbxFile_DragEnter);
             // 
             // tbxFilesHash
             // 
+            this.tbxFilesHash.AllowDrop = true;
             this.tbxFilesHash.Location = new System.Drawing.Point(15, 109);
             this.tbxFilesHash.Name = "tbxFilesHash";
             this.tbxFilesHash.Size = new System.Drawing.Size(346, 20);
             this.tbxFilesHash.TabIndex = 3;
             this.tbxFilesHash.TextChanged += new System.EventHandler(this.tbxFilesHash_TextChanged);
+            this.tbxFilesHash.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxFilesHash_DragDrop);
             this.tbxFilesHash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFilesHash_KeyPress);
+            this.tbxFilesHash.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbxFilesHash_DragEnter);
             // 
             // tbxCompareHash
             // 
@@ -343,6 +359,7 @@
         private System.Windows.Forms.ToolStripMenuItem getColorToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnClearAll;
+        private System.Windows.Forms.ToolStripMenuItem batchHashingToolStripMenuItem;
     }
 }
 

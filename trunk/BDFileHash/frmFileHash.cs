@@ -49,6 +49,7 @@ namespace BDFileHash
         {
             // ** To hide our testing item on the menu strip **
             testToolStripMenuItem.Visible = false;
+            batchHashingToolStripMenuItem.Visible = false;
             // --------------------------------------------- **
             // Creates user config file with defaults if there isn't one.
             Properties.Settings.Default.Save();
@@ -329,5 +330,39 @@ namespace BDFileHash
             this.tbxCompareHash.SelectAll();
         }
 
+        private void batchHashingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open batch hashing form
+            frmBatch fbtch = new frmBatch();
+            fbtch.Show();
+        }
+
+        private void tbxFilesHash_DragEnter(object sender, DragEventArgs e)
+        {
+            tbxFile_DragEnter(sender, e);
+        }
+
+        private void tbxFilesHash_DragDrop(object sender, DragEventArgs e)
+        {
+            tbxFile_DragDrop(sender, e);
+        }
+
+        private void tbxFile_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void tbxFile_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 1)
+            {
+                MessageBox.Show(@"You may only drop one file at a time!");
+                return;
+            }
+            this.tbxFile.Text = files[0];
+            ActionCreateHash();
+        }
     }
 }

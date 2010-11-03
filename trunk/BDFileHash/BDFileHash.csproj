@@ -83,6 +83,12 @@
     <Compile Include="DBHashLib.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="FileTools.cs" />
+    <Compile Include="frmBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBatch.Designer.cs">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFileHash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBatch.resx">
+      <DependentUpon>frmBatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFileHash.resx">
       <DependentUpon>frmFileHash.cs</DependentUpon>
