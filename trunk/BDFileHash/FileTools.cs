@@ -40,6 +40,9 @@ namespace BDFileHash
                 case HashType.SHA256:
                     HashRegEx = Settings.Default.SHA256RegEx;
                     break;
+                case HashType.SHA512:
+                    HashRegEx = Settings.Default.SHA512RegEx;
+                    break;
             }
             FileInfo fi = new FileInfo(file);
             if (fileMax < fi.Length)

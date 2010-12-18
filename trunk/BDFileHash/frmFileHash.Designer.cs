@@ -33,6 +33,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hashTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchHashingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +49,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnGetHashFile = new System.Windows.Forms.Button();
             this.grpBoxHashType = new System.Windows.Forms.GroupBox();
+            this.rbtnSha512 = new System.Windows.Forms.RadioButton();
             this.rbtnSha256 = new System.Windows.Forms.RadioButton();
             this.rbtnSha1 = new System.Windows.Forms.RadioButton();
             this.rbtnMd5 = new System.Windows.Forms.RadioButton();
@@ -84,12 +86,20 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hashTextToolStripMenuItem,
             this.saveCurrentHashAsDefaultToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.batchHashingToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
+            // 
+            // hashTextToolStripMenuItem
+            // 
+            this.hashTextToolStripMenuItem.Name = "hashTextToolStripMenuItem";
+            this.hashTextToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.hashTextToolStripMenuItem.Text = "Hash &Text...";
+            this.hashTextToolStripMenuItem.Click += new System.EventHandler(this.hashTextToolStripMenuItem_Click);
             // 
             // saveCurrentHashAsDefaultToolStripMenuItem
             // 
@@ -181,18 +191,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "File\'s Hash";
+            this.label2.Text = "File\'s hash";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Compare Hash";
+            this.label3.Text = "Compare hash";
             // 
             // btnGetHashFile
             // 
@@ -206,15 +216,27 @@
             // 
             // grpBoxHashType
             // 
+            this.grpBoxHashType.Controls.Add(this.rbtnSha512);
             this.grpBoxHashType.Controls.Add(this.rbtnSha256);
             this.grpBoxHashType.Controls.Add(this.rbtnSha1);
             this.grpBoxHashType.Controls.Add(this.rbtnMd5);
-            this.grpBoxHashType.Location = new System.Drawing.Point(223, 27);
+            this.grpBoxHashType.Location = new System.Drawing.Point(205, 27);
             this.grpBoxHashType.Name = "grpBoxHashType";
-            this.grpBoxHashType.Size = new System.Drawing.Size(228, 35);
+            this.grpBoxHashType.Size = new System.Drawing.Size(275, 35);
             this.grpBoxHashType.TabIndex = 9;
             this.grpBoxHashType.TabStop = false;
             this.grpBoxHashType.Text = "Hash Type";
+            // 
+            // rbtnSha512
+            // 
+            this.rbtnSha512.AutoSize = true;
+            this.rbtnSha512.Location = new System.Drawing.Point(205, 15);
+            this.rbtnSha512.Name = "rbtnSha512";
+            this.rbtnSha512.Size = new System.Drawing.Size(68, 17);
+            this.rbtnSha512.TabIndex = 3;
+            this.rbtnSha512.TabStop = true;
+            this.rbtnSha512.Text = "SHA-512";
+            this.rbtnSha512.UseVisualStyleBackColor = true;
             // 
             // rbtnSha256
             // 
@@ -336,8 +358,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TextBox tbxFile;
-        private System.Windows.Forms.TextBox tbxFilesHash;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.TextBox tbxCompareHash;
         private System.Windows.Forms.Label label1;
@@ -360,6 +380,10 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.ToolStripMenuItem batchHashingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hashTextToolStripMenuItem;
+        protected System.Windows.Forms.TextBox tbxFile;
+        protected System.Windows.Forms.TextBox tbxFilesHash;
+        private System.Windows.Forms.RadioButton rbtnSha512;
     }
 }
 

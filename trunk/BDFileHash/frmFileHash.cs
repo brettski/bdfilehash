@@ -62,6 +62,8 @@ namespace BDFileHash
                 rbtnSha1.Checked = true;
             else if (HashType.SHA256.ToString() == v)
                 rbtnSha256.Checked = true;
+            else if (HashType.SHA512.ToString() == v)
+                rbtnSha512.Checked = true;
             else
                 rbtnMd5.Checked = true;
             currentFolder = Properties.Settings.Default.DefaultStartingFolder;
@@ -110,20 +112,8 @@ namespace BDFileHash
                 return;
             }
             HashTools ht = new HashTools();
-            HashType htype;
-            if (rbtnMd5.Checked)
-            {
-                htype = HashType.MD5;
-            }
-            else if (rbtnSha1.Checked)
-            {
-                htype = HashType.SHA1;
-            }
-            else if (rbtnSha256.Checked)
-            {
-                htype = HashType.SHA256;
-            }
-            else
+            HashType htype = GetSelectedHashType();
+            if (HashType.NONE == htype)
             {
                 MessageBox.Show("Invalid Hash Type");
                 return;
@@ -139,6 +129,8 @@ namespace BDFileHash
             }
             Cursor.Current = Cursors.Default;
             this.tbxFilesHash.Text = ht.Hash;
+            if(Properties.Settings.Default.CopyHashToClipboard && !string.IsNullOrEmpty(ht.Hash))
+                Clipboard.SetText(ht.Hash);
             currentFolder = ht.PathToFileToHash;
             if (Properties.Settings.Default.CheckLikeTextfileForHash) //TODO:Check how setting works when removed from config file
             {
@@ -149,6 +141,33 @@ namespace BDFileHash
 
                 }
             }
+        }
+
+        protected HashType GetSelectedHashType()
+        {
+            HashType htype = HashType.MD5;
+            if (rbtnMd5.Checked)
+            {
+                htype = HashType.MD5;
+            }
+            else if (rbtnSha1.Checked)
+            {
+                htype = HashType.SHA1;
+            }
+            else if (rbtnSha256.Checked)
+            {
+                htype = HashType.SHA256;
+            }
+            else if (rbtnSha512.Checked)
+            {
+                htype = HashType.SHA512;
+            }
+            else
+            {
+                //MessageBox.Show("Invalid Hash Type");
+                htype = HashType.NONE;
+            }
+            return htype;
         }
 
         private void btnGetCompareFile_Click(object sender, EventArgs e)
@@ -164,16 +183,13 @@ namespace BDFileHash
                     return;
                 tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.MD5);
             }
-            else if (rbtnSha1.Checked || rbtnSha256.Checked)
+            else if (rbtnSha1.Checked || rbtnSha256.Checked || rbtnSha512.Checked)
             {
                 filter = "SHA* (*.SHA*)|*.SHA*|All Files (*.*)|*.*";
                 hashCFile = PickAFile(filter);
                 if (string.IsNullOrEmpty(hashCFile))
                     return;
-                if (rbtnSha1.Checked)
-                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.SHA1);
-                else
-                    tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, HashType.SHA256);
+                tbxCompareHash.Text = FileTools.FindHashInFile(hashCFile, GetSelectedHashType());
             }
         }
 
@@ -288,13 +304,6 @@ namespace BDFileHash
             }
         }
 
-        enum CompareStatus
-        {
-            clear,
-            different,
-            same
-        }
-
         private void btnClearAll_Click(object sender, EventArgs e)
         {
             this.tbxFile.Text = string.Empty;
@@ -363,6 +372,19 @@ namespace BDFileHash
             }
             this.tbxFile.Text = files[0];
             ActionCreateHash();
+        }
+
+        private void hashTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Opens form to enter text in to be hashed;
+            frmHashText hashtext = new frmHashText();
+            hashtext.ParentHashTypeSelected = GetSelectedHashType();
+            hashtext.ShowDialog();
+            this.tbxFile.Text = "~From Text~";
+            this.tbxFilesHash.Text = hashtext.CalculatedHash;
+            if (Properties.Settings.Default.CopyHashToClipboard && !string.IsNullOrEmpty(hashtext.CalculatedHash))
+                Clipboard.SetText(hashtext.CalculatedHash);
+            // Hashes compaired on update value event on text boxes
         }
     }
 }

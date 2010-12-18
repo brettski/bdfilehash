@@ -26,6 +26,7 @@ namespace BDFileHash
         {
             this.chkCheckLikeTextfileForHash.Checked = Properties.Settings.Default.CheckLikeTextfileForHash;
             this.chkHashFileOnLoad.Checked = Properties.Settings.Default.HashFileOnLoad;
+            this.chkCopyHashToClipboard.Checked = Properties.Settings.Default.CopyHashToClipboard;
             this.lblDefaultFolderValue.Text = Properties.Settings.Default.DefaultStartingFolder;
         }
 
@@ -33,6 +34,7 @@ namespace BDFileHash
         {
             Properties.Settings.Default.CheckLikeTextfileForHash = this.chkCheckLikeTextfileForHash.Checked;
             Properties.Settings.Default.HashFileOnLoad = this.chkHashFileOnLoad.Checked;
+            Properties.Settings.Default.CopyHashToClipboard = this.chkCopyHashToClipboard.Checked;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

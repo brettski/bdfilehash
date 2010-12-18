@@ -26,5 +26,11 @@
     <Setting Name="HashFileOnLoad" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="SHA512RegEx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\b[0-9a-fA-F]{128}\b</Value>
+    </Setting>
+    <Setting Name="CopyHashToClipboard" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

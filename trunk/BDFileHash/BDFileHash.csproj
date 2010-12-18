@@ -95,6 +95,12 @@
     <Compile Include="frmFileHash.Designer.cs">
       <DependentUpon>frmFileHash.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHashText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHashText.Designer.cs">
+      <DependentUpon>frmHashText.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFileHash.resx">
       <DependentUpon>frmFileHash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHashText.resx">
+      <DependentUpon>frmHashText.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>

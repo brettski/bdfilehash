@@ -78,6 +78,9 @@ namespace BDFileHash
                 case HashType.SHA256:
                     rv = CreateSHA256FileHash();
                     break;
+                case HashType.SHA512:
+                    rv = CreateSHA512FileHash();
+                    break;
                 default:
                     rv = false;
                     break;
@@ -162,6 +165,33 @@ namespace BDFileHash
             }
             return true;
         }
+
+        private bool CreateSHA512FileHash()
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(FileToHash, FileMode.Open, FileAccess.Read))
+                {
+                    SHA512Managed sha512 = new SHA512Managed();
+                    ByteHash = sha512.ComputeHash(fs);
+                    fs.Close();
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < ByteHash.Length; i++)
+                {
+                    sb.Append(ByteHash[i].ToString("x2"));
+                }
+                Hash = sb.ToString();
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.ToString();
+                InError = true;
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Search for text type file with like name of the hashed file.  If file is found
         /// check it for a hash string.  Often publisher hashes are stored in a text file with the
@@ -192,6 +222,60 @@ namespace BDFileHash
                 }
             }
             return TextFileHashFound.Length > 0;
+        }
+
+        // Hash sent in text
+        /// <summary>
+        /// Create a hash value from provided text
+        /// </summary>
+        /// <param name="text">Text to hash</param>
+        /// <param name="ht">Hash method to use</param>
+        /// <returns>result</returns>
+        public bool CreateTextHash(string text, HashType ht)
+        {
+            bool rv = true;
+            try
+            {
+                byte[] byteText = Encoding.Default.GetBytes(text);
+                switch (ht)
+                {
+                    case HashType.MD5:
+                        MD5 md5 = new MD5CryptoServiceProvider();
+                        ByteHash = md5.ComputeHash(byteText);
+                        break;
+                    case HashType.SHA1:
+                        SHA1Managed sha1 = new SHA1Managed();
+                        ByteHash = sha1.ComputeHash(byteText);
+                        break;
+                    case HashType.SHA256:
+                        SHA256Managed sha256 = new SHA256Managed();
+                        ByteHash = sha256.ComputeHash(byteText);
+                        break;
+                    case HashType.SHA512:
+                        SHA512Managed sha512 = new SHA512Managed();
+                        ByteHash = sha512.ComputeHash(byteText);
+                        break;
+                    default:
+                        rv = false;
+                        break;
+                }
+                if (rv)
+                {
+                    StringBuilder sb = new StringBuilder(ByteHash.Length);
+                    for (int i = 0; i < ByteHash.Length; i++)
+                    {
+                        sb.Append(ByteHash[i].ToString("x2"));
+                    }
+                    Hash = sb.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMsg = ex.ToString();
+                InError = true;
+                return false;
+            }
+            return rv;
         }
 
         // Properties

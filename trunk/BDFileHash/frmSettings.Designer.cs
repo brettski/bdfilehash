@@ -37,27 +37,30 @@
             this.lblDefaultFolder = new System.Windows.Forms.Label();
             this.lblDefaultFolderValue = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkCopyHashToClipboard = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chkCheckLikeTextfileForHash
             // 
             this.chkCheckLikeTextfileForHash.AutoSize = true;
+            this.chkCheckLikeTextfileForHash.BackColor = System.Drawing.Color.Transparent;
             this.chkCheckLikeTextfileForHash.Location = new System.Drawing.Point(36, 49);
             this.chkCheckLikeTextfileForHash.Name = "chkCheckLikeTextfileForHash";
             this.chkCheckLikeTextfileForHash.Size = new System.Drawing.Size(191, 17);
             this.chkCheckLikeTextfileForHash.TabIndex = 0;
             this.chkCheckLikeTextfileForHash.Text = "Check like file name for hash value";
-            this.chkCheckLikeTextfileForHash.UseVisualStyleBackColor = true;
+            this.chkCheckLikeTextfileForHash.UseVisualStyleBackColor = false;
             // 
             // chkHashFileOnLoad
             // 
             this.chkHashFileOnLoad.AutoSize = true;
+            this.chkHashFileOnLoad.BackColor = System.Drawing.Color.Transparent;
             this.chkHashFileOnLoad.Location = new System.Drawing.Point(36, 72);
             this.chkHashFileOnLoad.Name = "chkHashFileOnLoad";
             this.chkHashFileOnLoad.Size = new System.Drawing.Size(174, 17);
             this.chkHashFileOnLoad.TabIndex = 1;
             this.chkHashFileOnLoad.Text = "Hash file on \'Send To\' app start";
-            this.chkHashFileOnLoad.UseVisualStyleBackColor = true;
+            this.chkHashFileOnLoad.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
@@ -82,6 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
@@ -92,7 +96,8 @@
             // lblDefaultFolder
             // 
             this.lblDefaultFolder.AutoSize = true;
-            this.lblDefaultFolder.Location = new System.Drawing.Point(14, 101);
+            this.lblDefaultFolder.BackColor = System.Drawing.Color.Transparent;
+            this.lblDefaultFolder.Location = new System.Drawing.Point(12, 130);
             this.lblDefaultFolder.Name = "lblDefaultFolder";
             this.lblDefaultFolder.Size = new System.Drawing.Size(115, 13);
             this.lblDefaultFolder.TabIndex = 5;
@@ -101,20 +106,35 @@
             // lblDefaultFolderValue
             // 
             this.lblDefaultFolderValue.AutoSize = true;
-            this.lblDefaultFolderValue.Location = new System.Drawing.Point(14, 117);
+            this.lblDefaultFolderValue.BackColor = System.Drawing.Color.Transparent;
+            this.lblDefaultFolderValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDefaultFolderValue.Location = new System.Drawing.Point(12, 146);
             this.lblDefaultFolderValue.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblDefaultFolderValue.MinimumSize = new System.Drawing.Size(250, 0);
             this.lblDefaultFolderValue.Name = "lblDefaultFolderValue";
-            this.lblDefaultFolderValue.Size = new System.Drawing.Size(250, 13);
+            this.lblDefaultFolderValue.Size = new System.Drawing.Size(250, 15);
             this.lblDefaultFolderValue.TabIndex = 6;
             this.lblDefaultFolderValue.Click += new System.EventHandler(this.lblDefaultFolderValue_Click);
+            // 
+            // chkCopyHashToClipboard
+            // 
+            this.chkCopyHashToClipboard.AutoSize = true;
+            this.chkCopyHashToClipboard.BackColor = System.Drawing.Color.Transparent;
+            this.chkCopyHashToClipboard.Location = new System.Drawing.Point(36, 95);
+            this.chkCopyHashToClipboard.Name = "chkCopyHashToClipboard";
+            this.chkCopyHashToClipboard.Size = new System.Drawing.Size(186, 17);
+            this.chkCopyHashToClipboard.TabIndex = 7;
+            this.chkCopyHashToClipboard.Text = "Copy calculated hash to clipboard";
+            this.chkCopyHashToClipboard.UseVisualStyleBackColor = false;
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.Khaki;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Controls.Add(this.chkCopyHashToClipboard);
             this.Controls.Add(this.lblDefaultFolderValue);
             this.Controls.Add(this.lblDefaultFolder);
             this.Controls.Add(this.label1);
@@ -141,5 +161,6 @@
         private System.Windows.Forms.Label lblDefaultFolder;
         private System.Windows.Forms.Label lblDefaultFolderValue;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.CheckBox chkCopyHashToClipboard;
     }
 }
