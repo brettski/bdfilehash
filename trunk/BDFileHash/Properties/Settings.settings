@@ -30,7 +30,7 @@
       <Value Profile="(Default)">\b[0-9a-fA-F]{128}\b</Value>
     </Setting>
     <Setting Name="CopyHashToClipboard" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
