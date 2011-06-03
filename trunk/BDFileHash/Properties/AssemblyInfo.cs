@@ -1,16 +1,17 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BDFileHash")]
+[assembly: AssemblyTitle("BD File Hash")]
 [assembly: AssemblyDescription("Convenient file hashing and hash compare tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Brettski")]
 [assembly: AssemblyProduct("BD File Hash")]
-[assembly: AssemblyCopyright("Copyright © Brettski 2010")]
+[assembly: AssemblyCopyright("Copyright © Brettski 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +34,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0")]
+[assembly: AssemblyFileVersion("1.1.1")]
+[assembly: NeutralResourcesLanguageAttribute("en-US")]

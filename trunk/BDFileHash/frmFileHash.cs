@@ -77,7 +77,7 @@ namespace BDFileHash
         private void btnGetHashFile_Click(object sender, EventArgs e)
         {
             string s = PickAFile();
-            if (string.Empty != s)
+            if (!string.IsNullOrEmpty(s))
                 this.tbxFile.Text = s;
             // We don't want to disturb the text box if nothing was selected
         }
@@ -380,6 +380,8 @@ namespace BDFileHash
             frmHashText hashtext = new frmHashText();
             hashtext.ParentHashTypeSelected = GetSelectedHashType();
             hashtext.ShowDialog();
+            if (string.IsNullOrEmpty(hashtext.CalculatedHash))
+                return;
             this.tbxFile.Text = "~From Text~";
             this.tbxFilesHash.Text = hashtext.CalculatedHash;
             if (Properties.Settings.Default.CopyHashToClipboard && !string.IsNullOrEmpty(hashtext.CalculatedHash))

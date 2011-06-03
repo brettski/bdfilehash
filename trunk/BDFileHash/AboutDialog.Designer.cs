@@ -79,9 +79,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(12, 253);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
+            this.label2.Size = new System.Drawing.Size(161, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Copyright © 2010, Brettski";
+            this.label2.Text = "Copyright © 2010--2011, Brettski";
             // 
             // label3
             // 
