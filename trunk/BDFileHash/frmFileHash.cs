@@ -388,5 +388,21 @@ namespace BDFileHash
                 Clipboard.SetText(hashtext.CalculatedHash);
             // Hashes compaired on update value event on text boxes
         }
+
+        private void sendToVirusTotalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Sends the current hash value to Virus Total (http://www.virustotal.com)
+            /*
+             * There is a specific HTTP GET request to do this, feel free to use this link feature in your sites. 
+             * The link is as follows: http://www.virustotal.com/latest-report.html?resource={md5, sha1, sha256, URL}. 
+             * In other words, if we want to link to the most recent report of the file 
+             * with md5 hash 0c092e922aedc80a6e063a39c3e22f3f we just have to build use: 
+             * http://www.virustotal.com/latest-report.html?resource=0c092e922aedc80a6e063a39c3e22f3f
+            */
+            if (!string.IsNullOrEmpty(this.tbxFilesHash.Text))
+            {
+                System.Diagnostics.Process.Start("IExplore", Uri.EscapeUriString("http://www.virustotal.com/latest-report.html?resource=" + this.tbxFilesHash.Text));
+            }
+        }
     }
 }

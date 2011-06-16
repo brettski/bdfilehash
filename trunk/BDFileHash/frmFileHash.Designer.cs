@@ -59,6 +59,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClearAll = new System.Windows.Forms.Button();
+            this.sendToVirusTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +90,7 @@
             this.hashTextToolStripMenuItem,
             this.saveCurrentHashAsDefaultToolStripMenuItem,
             this.settingsToolStripMenuItem,
+            this.sendToVirusTotalToolStripMenuItem,
             this.batchHashingToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -153,8 +155,8 @@
             this.tbxFile.Size = new System.Drawing.Size(346, 20);
             this.tbxFile.TabIndex = 2;
             this.tbxFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxFile_DragDrop);
-            this.tbxFile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFile_KeyPress);
             this.tbxFile.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbxFile_DragEnter);
+            this.tbxFile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFile_KeyPress);
             // 
             // tbxFilesHash
             // 
@@ -165,8 +167,8 @@
             this.tbxFilesHash.TabIndex = 3;
             this.tbxFilesHash.TextChanged += new System.EventHandler(this.tbxFilesHash_TextChanged);
             this.tbxFilesHash.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxFilesHash_DragDrop);
-            this.tbxFilesHash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFilesHash_KeyPress);
             this.tbxFilesHash.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbxFilesHash_DragEnter);
+            this.tbxFilesHash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFilesHash_KeyPress);
             // 
             // tbxCompareHash
             // 
@@ -320,6 +322,15 @@
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
+            // sendToVirusTotalToolStripMenuItem
+            // 
+            this.sendToVirusTotalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendToVirusTotalToolStripMenuItem.Image")));
+            this.sendToVirusTotalToolStripMenuItem.Name = "sendToVirusTotalToolStripMenuItem";
+            this.sendToVirusTotalToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.sendToVirusTotalToolStripMenuItem.Text = "Send to Virus Total";
+            this.sendToVirusTotalToolStripMenuItem.ToolTipText = "Check hash value at VirusTotal.com";
+            this.sendToVirusTotalToolStripMenuItem.Click += new System.EventHandler(this.sendToVirusTotalToolStripMenuItem_Click);
+            // 
             // frmFileHash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +395,7 @@
         protected System.Windows.Forms.TextBox tbxFile;
         protected System.Windows.Forms.TextBox tbxFilesHash;
         private System.Windows.Forms.RadioButton rbtnSha512;
+        private System.Windows.Forms.ToolStripMenuItem sendToVirusTotalToolStripMenuItem;
     }
 }
 
