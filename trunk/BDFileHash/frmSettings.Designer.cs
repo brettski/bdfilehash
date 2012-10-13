@@ -38,6 +38,7 @@
             this.lblDefaultFolderValue = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.chkCopyHashToClipboard = new System.Windows.Forms.CheckBox();
+            this.chkRmvWhiteSp = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // chkCheckLikeTextfileForHash
@@ -97,7 +98,7 @@
             // 
             this.lblDefaultFolder.AutoSize = true;
             this.lblDefaultFolder.BackColor = System.Drawing.Color.Transparent;
-            this.lblDefaultFolder.Location = new System.Drawing.Point(12, 130);
+            this.lblDefaultFolder.Location = new System.Drawing.Point(12, 151);
             this.lblDefaultFolder.Name = "lblDefaultFolder";
             this.lblDefaultFolder.Size = new System.Drawing.Size(115, 13);
             this.lblDefaultFolder.TabIndex = 5;
@@ -108,7 +109,7 @@
             this.lblDefaultFolderValue.AutoSize = true;
             this.lblDefaultFolderValue.BackColor = System.Drawing.Color.Transparent;
             this.lblDefaultFolderValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDefaultFolderValue.Location = new System.Drawing.Point(12, 146);
+            this.lblDefaultFolderValue.Location = new System.Drawing.Point(12, 167);
             this.lblDefaultFolderValue.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblDefaultFolderValue.MinimumSize = new System.Drawing.Size(250, 0);
             this.lblDefaultFolderValue.Name = "lblDefaultFolderValue";
@@ -122,10 +123,21 @@
             this.chkCopyHashToClipboard.BackColor = System.Drawing.Color.Transparent;
             this.chkCopyHashToClipboard.Location = new System.Drawing.Point(36, 95);
             this.chkCopyHashToClipboard.Name = "chkCopyHashToClipboard";
-            this.chkCopyHashToClipboard.Size = new System.Drawing.Size(186, 17);
+            this.chkCopyHashToClipboard.Size = new System.Drawing.Size(210, 17);
             this.chkCopyHashToClipboard.TabIndex = 7;
-            this.chkCopyHashToClipboard.Text = "Copy calculated hash to clipboard";
+            this.chkCopyHashToClipboard.Text = "Auto-copy calculated hash to clipboard";
             this.chkCopyHashToClipboard.UseVisualStyleBackColor = false;
+            // 
+            // chkRmvWhiteSp
+            // 
+            this.chkRmvWhiteSp.AutoSize = true;
+            this.chkRmvWhiteSp.BackColor = System.Drawing.Color.Transparent;
+            this.chkRmvWhiteSp.Location = new System.Drawing.Point(36, 118);
+            this.chkRmvWhiteSp.Name = "chkRmvWhiteSp";
+            this.chkRmvWhiteSp.Size = new System.Drawing.Size(160, 17);
+            this.chkRmvWhiteSp.TabIndex = 8;
+            this.chkRmvWhiteSp.Text = "Auto-remove spaces in hash";
+            this.chkRmvWhiteSp.UseVisualStyleBackColor = false;
             // 
             // frmSettings
             // 
@@ -134,6 +146,7 @@
             this.BackColor = System.Drawing.Color.Khaki;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Controls.Add(this.chkRmvWhiteSp);
             this.Controls.Add(this.chkCopyHashToClipboard);
             this.Controls.Add(this.lblDefaultFolderValue);
             this.Controls.Add(this.lblDefaultFolder);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.Label lblDefaultFolderValue;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.CheckBox chkCopyHashToClipboard;
+        private System.Windows.Forms.CheckBox chkRmvWhiteSp;
     }
 }
