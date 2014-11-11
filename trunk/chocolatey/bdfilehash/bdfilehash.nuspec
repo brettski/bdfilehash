@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if ??? doesn?t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>bdfilehash</id>
+    <title>BD File Hash</title>
+    <version>1.1.2</version>
+    <authors>Brettski</authors>
+    <owners>Brettski</owners>
+    <summary>BD File Hash is a convenient file hashing and hash compare tool for Windows.</summary>
+    <description>BD File Hash is a convenient file hashing and hash compare tool for Windows which currently works with MD5, SHA-1, SHA-256, and SHA-512 algorithms.</description>
+    <projectUrl>http://bdfilehash.codeplex.com/</projectUrl>
+    <tags>bdfilehash file hash SHA1 SHA256 SHA512 MD5</tags>
+    <copyright></copyright>
+    <licenseUrl>http://bdfilehash.codeplex.com/license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--<iconUrl>http://cdn.rawgit.com/__CHOCO_PKG_MAINTAINER_REPO__/master/icons/bdfilehash.png</iconUrl>-->
+    <!--<dependencies>
+      <dependency id="" version="" />
+    </dependencies>-->
+    <releaseNotes></releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
