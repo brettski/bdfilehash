@@ -15,13 +15,13 @@
 
 ; MUI Settings
 !define MUI_ABORTWARNING
-!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install-full.ico"
+!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall-full.ico"
 
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
 ; License page
-!insertmacro MUI_PAGE_LICENSE "..\..\..\Documents and Settings\brettski\My Documents\MS-PL.txt"
+!insertmacro MUI_PAGE_LICENSE "..\bdfilehash\license.txt"
 ; Directory page
 !insertmacro MUI_PAGE_DIRECTORY
 ; Start menu page

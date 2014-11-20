@@ -13,11 +13,11 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>A5DF5B3243AF8C4119668CF7CAD7574D87A4C7D4</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>72756578E2799D85DF318D2BBEB7503C0D99E30E</ManifestCertificateThumbprint>
     <ManifestKeyFile>BDFileHash_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
-    <ApplicationIcon>filehash.ico</ApplicationIcon>
+    <SignManifests>false</SignManifests>
+    <ApplicationIcon>Assets\bdfilehash.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -32,10 +32,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <SupportUrl>http://www.brettski.com</SupportUrl>
+    <SupportUrl>http://bdfilehash.codeplex.com</SupportUrl>
     <ProductName>BDFileHash</ProductName>
     <PublisherName>Brett Slaski</PublisherName>
-    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.5.%2a</ApplicationVersion>
@@ -142,7 +141,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="BDFileHash_TemporaryKey.pfx" />
+    <None Include="Assets\bdfilehash.pdn" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -187,7 +186,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="filehash.ico" />
+    <Content Include="Assets\bdfilehash.ico" />
+    <Content Include="Assets\bdfilehash.png" />
+    <Content Include="Assets\filehash.ico" />
     <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

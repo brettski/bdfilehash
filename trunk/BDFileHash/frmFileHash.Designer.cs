@@ -36,6 +36,7 @@
             this.hashTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCurrentHashAsDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendToVirusTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchHashingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnClearAll = new System.Windows.Forms.Button();
-            this.sendToVirusTotalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxHashType.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -93,41 +93,50 @@
             this.sendToVirusTotalToolStripMenuItem,
             this.batchHashingToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.aboutToolStripMenuItem.Text = "Tools";
             // 
             // hashTextToolStripMenuItem
             // 
             this.hashTextToolStripMenuItem.Name = "hashTextToolStripMenuItem";
-            this.hashTextToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.hashTextToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.hashTextToolStripMenuItem.Text = "Hash &Text...";
             this.hashTextToolStripMenuItem.Click += new System.EventHandler(this.hashTextToolStripMenuItem_Click);
             // 
             // saveCurrentHashAsDefaultToolStripMenuItem
             // 
             this.saveCurrentHashAsDefaultToolStripMenuItem.Name = "saveCurrentHashAsDefaultToolStripMenuItem";
-            this.saveCurrentHashAsDefaultToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.saveCurrentHashAsDefaultToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.saveCurrentHashAsDefaultToolStripMenuItem.Text = "Save current hash as default";
             this.saveCurrentHashAsDefaultToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentHashAsDefaultToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // sendToVirusTotalToolStripMenuItem
+            // 
+            this.sendToVirusTotalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendToVirusTotalToolStripMenuItem.Image")));
+            this.sendToVirusTotalToolStripMenuItem.Name = "sendToVirusTotalToolStripMenuItem";
+            this.sendToVirusTotalToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.sendToVirusTotalToolStripMenuItem.Text = "Send to Virus Total";
+            this.sendToVirusTotalToolStripMenuItem.ToolTipText = "Check hash value at VirusTotal.com";
+            this.sendToVirusTotalToolStripMenuItem.Click += new System.EventHandler(this.sendToVirusTotalToolStripMenuItem_Click);
             // 
             // batchHashingToolStripMenuItem
             // 
             this.batchHashingToolStripMenuItem.Name = "batchHashingToolStripMenuItem";
-            this.batchHashingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.batchHashingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.batchHashingToolStripMenuItem.Text = "Batch Hashing";
             this.batchHashingToolStripMenuItem.Click += new System.EventHandler(this.batchHashingToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -136,14 +145,14 @@
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.getColorToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Visible = false;
             // 
             // getColorToolStripMenuItem
             // 
             this.getColorToolStripMenuItem.Name = "getColorToolStripMenuItem";
-            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.getColorToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.getColorToolStripMenuItem.Text = "GetColor";
             this.getColorToolStripMenuItem.Click += new System.EventHandler(this.getColorToolStripMenuItem_Click);
             // 
@@ -321,15 +330,6 @@
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
-            // 
-            // sendToVirusTotalToolStripMenuItem
-            // 
-            this.sendToVirusTotalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendToVirusTotalToolStripMenuItem.Image")));
-            this.sendToVirusTotalToolStripMenuItem.Name = "sendToVirusTotalToolStripMenuItem";
-            this.sendToVirusTotalToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.sendToVirusTotalToolStripMenuItem.Text = "Send to Virus Total";
-            this.sendToVirusTotalToolStripMenuItem.ToolTipText = "Check hash value at VirusTotal.com";
-            this.sendToVirusTotalToolStripMenuItem.Click += new System.EventHandler(this.sendToVirusTotalToolStripMenuItem_Click);
             // 
             // frmFileHash
             // 

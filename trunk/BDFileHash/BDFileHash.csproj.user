@@ -8,7 +8,7 @@
     <PublishUrlHistory>http://localhost/BDFileHash/|C:\vsp2k8-publish\BDFileHash\</PublishUrlHistory>
     <InstallUrlHistory>
     </InstallUrlHistory>
-    <SupportUrlHistory>http://www.brettski.com</SupportUrlHistory>
+    <SupportUrlHistory>http://bdfilehash.codeplex.com|http://www.brettski.com</SupportUrlHistory>
     <UpdateUrlHistory>
     </UpdateUrlHistory>
     <BootstrapperUrlHistory>
@@ -18,5 +18,6 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>true</VerifyUploadedFiles>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

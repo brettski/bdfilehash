@@ -45,10 +45,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("DejaVu Sans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 24);
+            this.label1.Size = new System.Drawing.Size(150, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "BD File Hash";
             // 
@@ -81,7 +81,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Copyright © 2010--2011, Brettski";
+            this.label2.Text = "Copyright © 2010--2014, Brettski";
             // 
             // label3
             // 
@@ -114,7 +114,7 @@
             this.lblDescription.Size = new System.Drawing.Size(239, 39);
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "BD File Hash is a convenient file hash and \r\nhash compare tool for Windows.  Curr" +
-                "ently \r\nworks with MD5, SHA-1, SHA-256, and SHA-512";
+    "ently \r\nworks with MD5, SHA-1, SHA-256, and SHA-512";
             // 
             // grpbxDescription
             // 
