@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Brettski")]
 [assembly: AssemblyProduct("BD File Hash")]
-[assembly: AssemblyCopyright("Copyright © Brettski 2011")]
+[assembly: AssemblyCopyright("Copyright © Brettski 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

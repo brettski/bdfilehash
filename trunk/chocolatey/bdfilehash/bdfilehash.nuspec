@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackageshttps://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>bdfilehash</id>
     <title>BD File Hash</title>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <authors>Brettski</authors>
     <owners>Brettski</owners>
     <summary>BD File Hash is a convenient file hashing and hash compare tool for Windows.</summary>
@@ -15,10 +15,7 @@
     <copyright></copyright>
     <licenseUrl>http://bdfilehash.codeplex.com/license</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <!--<iconUrl>http://cdn.rawgit.com/__CHOCO_PKG_MAINTAINER_REPO__/master/icons/bdfilehash.png</iconUrl>-->
-    <!--<dependencies>
-      <dependency id="" version="" />
-    </dependencies>-->
+    <iconUrl>http://brettski.com/f111/bdfilehash.png</iconUrl>
     <releaseNotes></releaseNotes>
   </metadata>
   <files>
