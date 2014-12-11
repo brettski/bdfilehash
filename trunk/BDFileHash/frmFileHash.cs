@@ -287,18 +287,21 @@ namespace BDFileHash
                 case CompareStatus.clear:
                     this.tbxFilesHash.BackColor = Color.White;
                     this.tbxCompareHash.BackColor = Color.White;
+                    this.lblStatus.Text = string.Empty;
                     break;
 
                 case CompareStatus.different:
                     Color cd = Color.FromArgb(255, 0, 0);
                     this.tbxFilesHash.BackColor = cd;
                     this.tbxCompareHash.BackColor = cd;
+                    this.lblStatus.Text = "Hash values are different";
                     break;
 
                 case CompareStatus.same:
                     Color cs = Color.FromArgb(0, 255, 0);
                     this.tbxFilesHash.BackColor = cs;
                     this.tbxCompareHash.BackColor = cs;
+                    this.lblStatus.Text = "Hash values are the same";
                     break;
 
             }
