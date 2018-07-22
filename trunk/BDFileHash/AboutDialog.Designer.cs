@@ -81,7 +81,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Copyright © 2010--2014, Brettski";
+            this.label2.Text = "Copyright © 2010--2018, Brettski";
             // 
             // label3
             // 
