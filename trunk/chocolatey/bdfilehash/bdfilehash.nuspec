@@ -13,9 +13,10 @@
     <projectUrl>https://github.com/brettski/bdfilehash</projectUrl>
     <tags>bdfilehash file hash SHA1 SHA256 SHA512 MD5</tags>
     <copyright></copyright>
+    <packageSourceUrl>https://github.com/brettski/bdfilehash</packageSourceUrl>
     <licenseUrl>https://github.com/brettski/bdfilehash/blob/master/license.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>http://brettski.com/f111/bdfilehash.png</iconUrl>
+    <iconUrl>https://cdn.rawgit.com/brettski/bdfilehash/v1.1.4/trunk/BDFileHash/Assets/bdfilehash.png</iconUrl>
     <releaseNotes></releaseNotes>
   </metadata>
   <files>
